@@ -1,11 +1,15 @@
-## Installation
+## Cài đặt
+TL;DR
+> Phần này hướng dẫn dành cho người mới bắt đầu, nên bài viết sẽ có những phần 
+không cần thiết, nếu muốn nhanh bạn có thể vào trang [rustup] để cài đặt Rust.
 
-The first step to using Rust is to install it. You’ll need an internet
-connection to run the commands in this chapter, as we’ll be downloading Rust
-from the internet.
+[rustup]: https://www.rustup.rs/
 
-We’ll be showing off a number of commands using a terminal, and those lines all
-start with `$`. You don't need to type in the `$` character; they are there to indicate
+Bước đầu tiên để dùng được Rust là bạn phải cài đặt nó. Bạn sẽ cần phải có
+internet để run command line, cũng như download Rust.
+
+Phần lớn chúng ta sẽ làm việc với terminal, và tất cả các dòng đều bắt đầu bằng 
+`$`. Bạn không cần phải gõ ký tự `$`; they are there to indicate
 the start of each command. You’ll see many tutorials and examples around the web
 that follow this convention: `$` for commands run as a regular user, and `#`
 for commands you should be running as an administrator. Lines that don't start

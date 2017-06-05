@@ -1,35 +1,32 @@
-# Introduction
+# Giới thiệu
 
-Welcome to “The Rust Programming Language,” an introductory book about Rust.
-Rust is a programming language that’s focused on safety, speed, and
-concurrency. Its design lets you create programs that have the performance and
-control of a low-level language, but with the powerful abstractions of a
-high-level language. These properties make Rust suitable for programmers who
-have experience in languages like C and are looking for a safer alternative, as
-well as those from languages like Python who are looking for ways to write code
-that performs better without sacrificing expressiveness.
+Chào mừng bạn đến với “The Rust Programming Language,” một quyển sách giới thiệu về Rust.
+Rust là một ngôn ngữ lập trình tập trung vào tính an toàn, tốc độ và đồng thời (concurrency).
+Nó được thiết kế để bạn tạo ra những chương trình có hiệu năng cao và
+kiểm soát như những ngôn ngữ bậc thấp, nhưng có tính trựu tượng mạnh mẽ như ngôn ngữ bậc cao.
+Những đặc tính trên làm cho Rust thích hợp với những nhà phát triển có nhiều kinh nghiệm trên C
+và đang tìm một ngôn ngữ an toàn thay thế, cũng như tất cả những ngôn ngữ khác giống như Python 
+những người đang tìm cách viết code có hiệu năng cao hơn mà không phải "sacrificing expressiveness".
 
-Rust performs the majority of its safety checks and memory management decisions
-at compile time, so that your program's runtime performance isn't impacted. This
-makes it useful in a number of use cases that other languages aren’t good at:
-programs with predictable space and time requirements, embedding in other
-languages, and writing low-level code, like device drivers and operating
-systems. It's also great for web applications: it powers the Rust package
-registry site, [crates.io]!  We're excited to see what *you* create with Rust.
+Nhiệm vụ chính của Rust là kiểm tra tính an toàn và quản lý bộ nhớ quyết định ở quá trình compile, 
+do đó hiệu suất của những chương trình bạn đang chạy sẽ không bị ảnh hưởng. Điều này 
+làm cho Rust có ý nghĩa ở một số trường hợp cụ thể: chương trình với khả năng dự đoán trước và
+sự yêu cầu về thời gian, nhúng vào trong một số ngôn ngữ khác, 
+và viết code ở low-level cho drivers hoặc hệ điều hành (Operating System). 
+Rust cũng rất tuyệt vời cho những ứng dụng web: Rust hỗ trợ một hệ sinh thái các packages - [crates.io]. 
+Chúng tôi rất vui khi bạn đóng góp những packages của mình vào đây.
 
 [crates.io]: https://crates.io/
 
-This book is written for a reader who already knows how to program in at least
-one programming language. After reading this book, you should be comfortable
-writing Rust programs. We’ll be learning Rust through small, focused examples
-that build on each other to demonstrate how to use various features of Rust as
-well as how they work behind the scenes.
+Quyển sách này viết cho những người đã từng biết ít nhất một ngôn ngữ lập trình.
+Sau khi đọc xong quyển sách này, bạn sẽ cảm thấy thoải mái khi viết những chương
+trình bằng Rust. Chúng ta sẽ học Rust từ những bước nhỏ nhất, tập trung vào những ví dụ để hiểu rõ về 
+những tính năng riêng lẻ của Rust, cũng như tìm hiểu sâu thêm những thiết kế đằng sau của Rust.
 
-## Contributing to the book
+## Contributing vào ebook
 
-This book is open source. If you find an error, please don’t hesitate to file an
-issue or send a pull request [on GitHub]. Please see [CONTRIBUTING.md] for
-more details.
+Được dịch lại từ [bản chính]. Nếu bạn tìm thấy lỗi nào về cú pháp, hoặc cách dùng từ không đúng, 
+hoặc bạn tìm ra lỗi nào đó, thì đừng do dự điều gì nữa, hãy gửi một pull request [trên Github].
 
-[on GitHub]: https://github.com/rust-lang/book
-[CONTRIBUTING.md]: https://github.com/rust-lang/book/blob/master/CONTRIBUTING.md
+[bản chính]: https://github.com/rust-lang/book
+[trên Github]: https://github.com/hngnaig/rust-lang-book
