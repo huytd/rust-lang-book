@@ -9,34 +9,35 @@ Bước đầu tiên để dùng được Rust là bạn phải cài đặt nó.
 internet để run command line, cũng như download Rust.
 
 Phần lớn chúng ta sẽ làm việc với terminal, và tất cả các dòng đều bắt đầu bằng 
-`$`. Bạn không cần phải gõ ký tự `$`; they are there to indicate
-the start of each command. You’ll see many tutorials and examples around the web
-that follow this convention: `$` for commands run as a regular user, and `#`
-for commands you should be running as an administrator. Lines that don't start
-with `$` are typically showing the output of the previous command.
+`$`. Bạn không cần phải gõ ký tự `$`. Bạn sẽ thấy những ví dụ và các ứng dụng
+web sẽ theo một quy tắc: `$` áp dụng cho người dùng bình thường (user regular), 
+và `#` áp dụng cho người dùng là quản trị viên (administrator). Những dòng không
+bắt đầu với `$` thông thường là kết quả của dòng lệnh (commands) đã được thực
+hiện.
 
-### Installing on Linux or Mac
+### Cài đặt Rust trên Linux hoặc Mac
 
-If you're on Linux or a Mac, all you need to do is open a terminal and type
-this:
+Nếu bạn đang dùng Linux hoặc Mac, tất cả đều bạn cần làm là mở terminal và gõ
+dòng sau:
 
 ```text
 $ curl https://sh.rustup.rs -sSf | sh
 ```
 
-This will download a script and start the installation. You may be prompted for
-your password. If it all goes well, you’ll see this appear:
+Dòng lệnh trên sẽ tải về 1 script và tiến hành quá trình cài đặt. Sẽ có một thông
+báo để bạn nhập password. Nếu quá trình cài đặt không có lỗi, bạn sẽ thấy dòng
+sau:
 
 ```text
 Rust is installed now. Great!
 ```
 
-Of course, if you disapprove of the `curl | sh` pattern, you can download, inspect
-and run the script however you like.
+Đương nhiên, nếu bạn không chấp nhận lệnh `curl | sh`, bạn có thể download, và 
+chạy script như cách bạn muốn.
 
-### Installing on Windows
+### Cài đặt trên Windows
 
-On Windows, go to [https://rustup.rs](https://rustup.rs/)<!-- ignore --> and
+Trên Windows, go to [https://rustup.rs](https://rustup.rs/)<!-- ignore --> and
 follow the instructions to download rustup-init.exe. Run that and follow the
 rest of the instructions it gives you.
 
