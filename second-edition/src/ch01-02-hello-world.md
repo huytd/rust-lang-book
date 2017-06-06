@@ -1,23 +1,23 @@
-## Hello, World!
+## Xin chào, thế giới!
 
-Now that you have Rust installed, let’s write your first Rust program. It's
-traditional when learning a new language to write a little program to print the
-text “Hello, world!” to the screen, and in this section, we'll follow that
-tradition.
+Bây giờ bạn đã cài đặt Rust rồi, bắt đầu viết chương trình đầu tiên bằng Rust nào.
+Một cách truyền thống khi bạn học một ngôn ngữ nào đó là in ra dòng chữ
+ “Xin chào, thế giới!” ("Hello, World") trên màn hình, và trong phần này, chúng
+ ta sẽ đi vẫn đi theo cách truyền thống.
 
-> Note: This book assumes basic familiarity with the command line. Rust itself
-> makes no specific demands about your editing, tooling, or where your code
-> lives, so if you prefer an IDE to the command line, feel free to use your
-> favorite IDE.
+> Ghi chú: chúng tôi giả định rằng bạn đã có một nền tảng kiến thức với terminal.
+> Bản thân Rust không yêu cầu bạn phải sử dụng hết command line, hoặc môi trường
+> phát triển, không phụ thuộc vào bất kỳ IDE nào. Nên bạn hoàn toàn độc lập vào
+> việc chọn môi trường, công cụ trợ giúp. 
 
-### Creating a Project Directory
+### Tạo thư mục dự án (project)
 
-First, make a directory to put your Rust code in. Rust doesn't care where your code
-lives, but for this book, we'd suggest making a *projects* directory in your
-home directory and keeping all your projects there. Open a terminal and enter
-the following commands to make a directory for this particular project:
+Đầu tiên, tạo một thư mục để lưu code Rust. Với Rust thì code không quan tâm được
+lưu ở đâu, nhưng đối với sách này, chúng tôi đề nghị nên tạo một thư mục 
+*projects* ngay trong thư mục home của bạn và luôn giữ code ở đây. Mở terminal và
+lần lượt tiến hành theo các dòng lệnh (command) dưới đây để tạo thự mục *projects*:
 
-Linux and Mac:
+Linux và Mac:
 
 ```text
 $ mkdir ~/projects
@@ -35,16 +35,16 @@ Windows:
 > cd hello_world
 ```
 
-### Writing and Running a Rust Program
+### Tiến hành viết và chạy thử một chương trình bằng Rust
 
-Next, make a new source file and call it *main.rs*. Rust files always end with
-the *.rs* extension. If you’re using more than one word in your filename, use
-an underscore to separate them. For example, you'd use *hello_world.rs* rather
-than *helloworld.rs*.
+Kế tiếp, tạo một file mới và đặt tên nó là *main.rs*. Những file của Rust luôn luôn
+có phần mở rộng là *.rs*. Nếu bạn dùng nhiều hơn một từ để đặt tên file, sử dụng
+dấu gạch dưới "_" để ngăn cách nhưng từ đó. Ví dụ, bạn nên đặt tên file là
+*hello_world.rs* hơn là *helloworld.rs*.
 
-Now open the *main.rs* file you just created, and type the following code:
+Bây giờ bạn mở file *main.rs* đã được tạo, và gõ dòng code sau vào:
 
-<span class="filename">Filename: main.rs</span>
+<span class="filename">Tên file: main.rs</span>
 
 ```rust
 fn main() {
@@ -52,8 +52,8 @@ fn main() {
 }
 ```
 
-Save the file, and go back to your terminal window. On Linux or OSX, enter the
-following commands:
+Lưu lại, và trở lại màn hình terminal. Đối với Linux hoặc OSX, thực hiện các dòng
+lệnh sau:
 
 ```text
 $ rustc main.rs
@@ -61,15 +61,16 @@ $ ./main
 Hello, world!
 ```
 
-On Windows, run `.\main.exe` instead of `./main`. Regardless of your
-operating system, you should see the string `Hello, world!` print to the
-terminal. If you did, then congratulations! You've officially written a Rust
-program. That makes you a Rust programmer! Welcome!
+Trên Windows, chạy `.\main.exe` thay vì `./main`. Không phụ thuộc hệ điều hành bạn
+là gì, bạn sẽ nhìn thấy dòng chữ `Hello, world!` được in ở màn hình terminal. 
+Nếu bạn làm được điều đó, xin chúc mừng bạn! Bạn đã chính thức viết được chương
+trình đầu tiên bằng Rust. Điều đó đã làm cho bạn trở thành một Rust programmer! 
+Xin chào mừng!
 
-### Anatomy of a Rust Program
+### Mổ xẻ chương trình được Rust
 
-Now, let’s go over what just happened in your "Hello, world!" program in
-detail. Here's the first piece of the puzzle:
+Bây giờ, chúng ta sẽ cùng đi tìm hiểu sâu hơn chương trình "Hello, World". 
+Cùng xem đoạn code đầu tiên của Rust:
 
 ```rust
 fn main() {
@@ -77,11 +78,11 @@ fn main() {
 }
 ```
 
-These lines define a *function* in Rust. The `main` function is special: it's
-the first thing that is run for every executable Rust program. The first line
-says, “I’m declaring a function named `main` that has no parameters and returns
-nothing.” If there were parameters, their names would go inside the
-parentheses, `(` and `)`.
+Những dòng trên định nghĩa một *function* (hàm) ở Rust. `main` function rất 
+đặc biệt: hàm này sẽ là hàm được chạy đầu tiên trong chương trình Rust. Dòng đầu
+tiên nói rằng, “Eh, tao khai báo một hàm tên là `main` không có truyền tham số gì
+và cũng không cần trả gì về.” Nếu có tham số, thì nó phải được đặt trong cặp dấu
+ngoặc tròn, `(` và `)`.
 
 Also note that the function body is wrapped in curly braces, `{` and `}`. Rust
 requires these around all function bodies. It's considered good style to put
