@@ -1,21 +1,21 @@
-## Xin chào, thế giới!
+## Hello, World!
 
-Bây giờ bạn đã cài đặt Rust rồi, bắt đầu viết chương trình đầu tiên bằng Rust nào.
-Một cách truyền thống khi bạn học một ngôn ngữ nào đó là in ra dòng chữ
- “Xin chào, thế giới!” ("Hello, World") trên màn hình, và trong phần này, chúng
- ta sẽ đi vẫn đi theo cách truyền thống.
+Trong phần trước chúng ta đã cài đặt xong Rust, phần này chúng ta sẽ cùng nhau
+viết một chương trình đầu tiên bằng Rust. Thông thường mỗi khi bắt đầu tìm hiểu
+một ngôn ngữ nào đó, chúng ta sẽ viết một chương trình đơn giản nhất đó là in ra
+màn hình dòng chữ "Hello, World!", và chúng ta sẽ vấn đi theo cách truyền thống
+này.
 
-> Ghi chú: chúng tôi giả định rằng bạn đã có một nền tảng kiến thức với terminal.
-> Bản thân Rust không yêu cầu bạn phải sử dụng hết command line, hoặc môi trường
-> phát triển, không phụ thuộc vào bất kỳ IDE nào. Nên bạn hoàn toàn độc lập vào
-> việc chọn môi trường, công cụ trợ giúp. 
+> Một vài chú ý nhỏ: bạn nên có ít kỹ năng với dòng lệnh (command line).
+> Với Rust, không yêu cầu bạn phải giỏi về command line, hay chọn môi trường để
+> phát triển, hoặc chọn một IDE/Editor nào đó để viết. Nên bạn tự quyết định
+> những lựa chọn đó. 
 
-### Tạo thư mục dự án (project)
+### Tạo thư mục để lưu code
 
-Đầu tiên, tạo một thư mục để lưu code Rust. Với Rust thì code không quan tâm được
-lưu ở đâu, nhưng đối với sách này, chúng tôi đề nghị nên tạo một thư mục 
-*projects* ngay trong thư mục home của bạn và luôn giữ code ở đây. Mở terminal và
-lần lượt tiến hành theo các dòng lệnh (command) dưới đây để tạo thự mục *projects*:
+> Nếu bạn đã quen thuộc với những công việc dưới đây, bạn có thể bỏ qua nó.
+
+Với Rust, code của bạn có thể lưu ở bất kỳ nơi nào, nhưng chúng tôi đề nghị bạn nên có một thư mục để lưu tất cả code, đối với phần này chúng ta sẽ tạo thư mục trong folder `HOME`, bạn có thể tạo folder ở bất cứ nơi nào bạn muốn. Mở một termial và gõ những dòng lệnh dưới đây, phụ thuộc vào hệ điều hành (operating system) bạn sử dụng lựa chọn dòng lệnh thích hợp:
 
 Linux và Mac:
 
@@ -35,16 +35,15 @@ Windows:
 > cd hello_world
 ```
 
-### Tiến hành viết và chạy thử một chương trình bằng Rust
+Những dòng lệnh trên sẽ tạo một folder projects trong `HOME` và tạo một folder con là `hello_world` trong projects.
 
-Kế tiếp, tạo một file mới và đặt tên nó là *main.rs*. Những file của Rust luôn luôn
-có phần mở rộng là *.rs*. Nếu bạn dùng nhiều hơn một từ để đặt tên file, sử dụng
-dấu gạch dưới "_" để ngăn cách nhưng từ đó. Ví dụ, bạn nên đặt tên file là
-*hello_world.rs* hơn là *helloworld.rs*.
+### Viết và chạy thử một chương trình bằng Rust
 
-Bây giờ bạn mở file *main.rs* đã được tạo, và gõ dòng code sau vào:
+Ngay trong folder `hello_world`, bạn tạo môt file mới có tên là *main.rs*. Rust luôn luôn có phần mở rộng kết thúc *.rs*. Nếu bạn muốn đặt một tên file dài, bạn dùng *_* để ngăn các từ với nhau. Ví dụ, bạn nên đặt tên file là *hello_world.rs* hơn là *helloworld.rs*.
 
-<span class="filename">Tên file: main.rs</span>
+Kế tiếp, bạn mở file *main.rs*, và gõ những dòng code sau:
+
+<span class="filename">Tên file: *main.rs*</span>
 
 ```rust
 fn main() {
@@ -52,8 +51,9 @@ fn main() {
 }
 ```
 
-Lưu lại, và trở lại màn hình terminal. Đối với Linux hoặc OSX, thực hiện các dòng
-lệnh sau:
+Save đoạn code trên và ngạy tại màn hình terminal thực hiện những dòng lệnh sau:
+
+Linux và Mac:
 
 ```text
 $ rustc main.rs
@@ -61,15 +61,12 @@ $ ./main
 Hello, world!
 ```
 
-Trên Windows, chạy `.\main.exe` thay vì `./main`. Không phụ thuộc hệ điều hành bạn
-là gì, bạn sẽ nhìn thấy dòng chữ `Hello, world!` được in ở màn hình terminal. 
-Nếu bạn làm được điều đó, xin chúc mừng bạn! Bạn đã chính thức viết được chương
-trình đầu tiên bằng Rust. Điều đó đã làm cho bạn trở thành một Rust programmer! 
-Xin chào mừng!
+Đối với Windows, bạn thực hiện lệnh `.\main.exe` thay vì `./main`. Không phụ thuộc vào hệ điều hành của bạn, bạn sẽ nhìn thấy dòng chữ `Hello, world!` được in ở màn hình terminal. Nếu bạn làm được điều đó, xin chúc mừng bạn! Bạn đã chính thức viết được chương trình đầu tiên bằng Rust. Điều đó đã làm cho bạn trở thành một Rust programmer! 
+Xin chào mừng bạn đến với Rust!
 
-### Mổ xẻ chương trình được Rust
+### Phân tích chương tình được viết bằng Rust
 
-Bây giờ, chúng ta sẽ cùng đi tìm hiểu sâu hơn chương trình "Hello, World". 
+Chúng ta sẽ cùng đi tìm hiểu chi tiết hơn chương trình "Hello, World". 
 Cùng xem đoạn code đầu tiên của Rust:
 
 ```rust
@@ -79,39 +76,26 @@ fn main() {
 ```
 
 Những dòng trên định nghĩa một *function* (hàm) ở Rust. `main` function rất 
-đặc biệt: hàm này sẽ là hàm được chạy đầu tiên trong chương trình Rust. Dòng đầu
-tiên nói rằng, “Eh, tao khai báo một hàm tên là `main` không có truyền tham số gì
-và cũng không cần trả gì về.” Nếu có tham số, thì nó phải được đặt trong cặp dấu
+đặc biệt: nó sẽ được gọi đầu tiên trong mọi chương trình. Dòng đầu
+tiên nói rằng, “Eh, tao khai báo một hàm có tên `main`, không có thêm tham số
+và không có dữ liệu trả về.” Nếu có tham số, thì tham số phải được đặt trong cặp dấu
 ngoặc tròn, `(` và `)`.
 
-Also note that the function body is wrapped in curly braces, `{` and `}`. Rust
-requires these around all function bodies. It's considered good style to put
-the opening curly brace on the same line as the function declaration, with one
-space in between.
+Phần thân của function được đặt trong cặp dấu ngoặc nhọn, `{` và `}`, và điều này là bắt buộc đối với Rust. Bạn nên đặt `{` cùng hàng với function được khai báo.
 
-Inside the `main` function:
+Trong hàm `main`:
 
 ```rust
     println!("Hello, world!");
 ```
 
-This line does all of the work in this little program: it prints text to the
-screen. There are a number of details to notice here. The first is that Rust
-style is to indent with four spaces, not a tab.
+Dòng này thực hiện toàn bộ công việc của một chương trình: in dòng chữ ra màn hình. Có một vài chú ý nhỏ ở đây. Đầu tiên, bạn dùng 4 spaces để thụt lề ở Rust, không dùng tabs.
 
-The second important part is `println!`. This is calling a Rust *macro*,
-which is how metaprogramming is done in Rust. If it were calling a function
-instead, it would look like this: `println` (without the `!`). We'll discuss
-Rust macros in more detail in Appendix E, but for now you just need to know
-that when you see a `!` that means that you’re calling a macro instead of a
-normal function.
+Chú ý quan trọng thứ 2 là: `println!`. Nó được gọi là Rust *macro*. Nếu dùng nó để thực hiện như một function, thì dùng cú pháp : `println` (không có `!`). Chúng ta sẽ tìm hiểu sâu hơn về *macro* ở phần Appendix E, nhưng bây giờ khi bạn gặp *!* thì nó là một *macro* không phải là một function.
 
-Next is `"Hello, world!"` which is a *string*. We pass this string as an
-argument to `println!`, which prints the string to the screen. Easy enough!
+Điểm lưu ý khác `"Hello, world!"` là một *chuỗi* (string). Chúng ta truyền string này như một tham số đối với macro  `println!`, và thực hiện in nó ra màn hình. Quá đơn giản!
 
-The line ends with a semicolon (`;`). The `;` indicates that this expression is
-over, and the next one is ready to begin. Most lines of Rust code end with a
-`;`.
+Hầu hết mọi dòng ở Rust đều kết thúc bằng dấu chấm phẩy (*;*). *;* là dấu hiệu để thông báo, tính toán đã kết thúc, và sẳn sàng chuyển đến bước kết tiếp.
 
 ### Compiling and Running Are Separate Steps
 
