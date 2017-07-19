@@ -1,132 +1,142 @@
-## Appendix B: Operators
+## Appendix B: Operators (Phụ lục B: Toán tử)
 
 ### Unary operator expressions
+(Biểu thức của toán tử một ngôi)
 
-Rust defines the following unary operators. They are all written as prefix
-operators, before the expression they apply to.
+Rust định nghĩa các toán tử một ngôi sau. Tất cả đều được viết như các toán tử
+tiền tố, nằm trước biểu thức mà chúng áp dụng.
 
 * `-`
-  : Negation. Signed integer types and floating-point types support negation. It
-    is an error to apply negation to unsigned types; for example, the compiler
-    rejects `-1u32`.
+  : Phủ định. Dành cho kiểu số nguyên có dấu để biểu diễn giá trị nhỏ hơn 0
+    hoặc một kiểu số thực có hỗ trợ giá trị nhỏ hơn 0. Báo lỗi sẽ xuất hiện khi
+    áp dụng phủ định vào một kiểu không dấu. Ví dụ như compiler sẽ báo lỗi với
+    đoạn code `-1u32`.
 * `*`
-  : Dereference. When applied to a pointer, it denotes the pointed-to location.
-    For pointers to mutable locations, the resulting value can be assigned to.
-    On non-pointer types, it calls the `deref` method of the `std::ops::Deref`
-    trait, or the `deref_mut` method of the `std::ops::DerefMut` trait (if
-    implemented by the type and required for an outer expression that will or
-    could mutate the dereference), and produces the result of dereferencing the
-    `&` or `&mut` borrowed pointer returned from the overload method.
+  : Dereference. Khi áp dụng cho một biến dạng con trỏ, nó
+    biểu thị vị trí mà con trỏ đó trỏ tới. Với các con trỏ đang trỏ tới một vị
+    trí khả biến, giá trị kết quả có thể được gán vào. Với các kiểu không thuộc
+    dạng con trỏ, nó sẽ gọi đến phương thức `deref` của trait `std::ops::Deref`
+    hoặc phương thức `deref_mut` của trait `std::ops::DerefMut` (Trong trường
+    hợp được triển khai bởi một kiểu hoặc được yêu cầu bởi  một biểu thức bên
+    ngoài thì dereference có thể bị thay đổi), và sinh ra giá trị cho `&` or
+    `&mut` borrowed pointer trả về từ phương thức overload.
 * `!`
-  : Logical negation. On the boolean type, this flips between `true` and
-    `false`. On integer types, this inverts the individual bits in the
-    two's complement representation of the value.
+  : Điều kiện phủ định. Trong kiểu boolean, nó tráo đổi giữa hai giá trị `true`
+    và `false`. Trong kiểu số nguyên, nó đảo dấu của giá trị bằng cách triển
+    khai two's complement representation của giá trị đó.
 * `&` and `&mut`
-  : Borrowing. When applied to a value, these operators produce a
-    reference (pointer) to that value. The value is also placed into
-    a borrowed state for the duration of the reference. For a shared
-    borrow (`&`), this implies that the value may not be mutated, but
-    it may be read or shared again. For a mutable borrow (`&mut`), the
-    value may not be accessed in any way until the borrow expires.
+  : Borrowing. Khi áp dụng vào một giá trị, toán tử này sinh ra một tham chiếu
+    (con trỏ) đến giá trị đó. Giá trị cũng đồng thời được đưa vào trạng thái
+    borrowed trong toàn bộ thời gian tham chiếu. Với shared borrow (`&`),
+    borrowing ngụ ý ràng giá trị có thể không được khả chuyển nhưng có thể đọc
+    được và chia sẻ. Với mutable borrow (`&mut`), giá trị có thể thay đổi được
+    nhưng bù lại là không thể được truy cập từ bất kì cách nào cho đến khi
+    borrow hết hạn.
 
 ### Binary operator expressions
+(Biểu thức toán tử nhị phân)
 
-Binary operators expressions are given in order of operator precedence.
+Biểu thức toán tử nhị phân được cung cấp theo thứ tự dưới đây
 
 #### Arithmetic operators
+(Toán tử số học)
 
-Binary arithmetic expressions are syntactic sugar for calls to built-in traits,
-defined in the `std::ops` module of the `std` library. This means arithmetic
-operators can be overridden for user-defined types. The default meaning of the
-operators on standard types is given here.
+Một biểu thức số học nhị phân và một cú pháp ngắn gọn để gọi đến các traits
+dựng sẵn, được định nghĩa trong module `std::ops` cả thư viện `std`. Nó có
+nghĩa là biểu thức số học có thể bị ghi đè được các kiểu được định nghĩa thêm
+vào thời điểm viết code. Ý nghĩa mặc định của các toán tử này được đưa ra dưới
+đây.
 
 * `+`
-  : Addition and array/string concatenation.
-    Calls the `add` method on the `std::ops::Add` trait.
+  : Phép cộng.
+    Gọi đến phương thức `add` của trait `std::ops::Add`.
 * `-`
-  : Subtraction.
-    Calls the `sub` method on the `std::ops::Sub` trait.
+  : Phép trừ.
+    Gọi đến phương thức `sub` của trait `std::ops::Sub`.
 * `*`
-  : Multiplication.
-    Calls the `mul` method on the `std::ops::Mul` trait.
+  : Phép chia.
+    Gọi đến phương thức `mul` của trait `std::ops::Mul`.
 * `/`
-  : Quotient.
-    Calls the `div` method on the `std::ops::Div` trait.
+  : Chia lấy nguyên.
+    Gọi đến phương thức `div` của trait `std::ops::Div`.
 * `%`
-  : Remainder.
-    Calls the `rem` method on the `std::ops::Rem` trait.
+  : Chia lấy phần dư.
+    Gọi đến phương thức `rem` của trait `std::ops::Rem`.
 
-Note that Rust does not have a built-in operator for exponential (power)
-calculation; see the `pow` method on the numeric types.
+Lưu ý rằng Rust không có toán tử dựng sẵn cho phép lũy thừa. Xem thêm phương
+thức `pow` trong danh sách numeric types.
 
 #### Bitwise operators
+(Toán tử bitwise)
 
-Like the arithmetic operators, bitwise operators are syntactic sugar for calls
-to methods of built-in traits. This means bitwise operators can be overridden
-for user-defined types. The default meaning of the operators on standard types
-is given here. Bitwise `&`, `|` and `^` applied to boolean arguments are
-equivalent to logical `&&`, `||` and `!=` evaluated in non-lazy fashion.
+Cũng giống như các toán tử số học, các toán tử bitwise là dạng cú pháp ngắn
+gọn để gọi đến các phương thức dựng sẵn. Nó có nghĩa là toán tử bitwire cũng
+có thể bị ghi đè bởi các kiểu mà người dùng định nghĩa sau này. Ý nghĩa mặc
+định của các toán tử này được cung cấp dưới đây. Các bitwise `&`, `|` và `^`
+dùng để áp dụng cho các toán tử boolean được sử dụng giống như thể hiện của
+các toán tử logic `&&`, `||` and `!=` dưới dạng non-lazy fashion (mục kế).
 
 * `&`
   : Bitwise AND.
-    Calls the `bitand` method of the `std::ops::BitAnd` trait.
+    Gọi đến phương thức `bitand` của trait `std::ops::BitAnd`.
 * `|`
   : Bitwise inclusive OR.
-    Calls the `bitor` method of the `std::ops::BitOr` trait.
+    Gọi đến phương thức `bitor` của trait `std::ops::BitOr`.
 * `^`
   : Bitwise exclusive OR.
-    Calls the `bitxor` method of the `std::ops::BitXor` trait.
+    Gọi đến phương thức `bitxor` của trait `std::ops::BitXor`.
 * `<<`
   : Left shift.
-    Calls the `shl` method of the `std::ops::Shl` trait.
+    Gọi đến phương thức `shl` của trait `std::ops::Shl`.
 * `>>`
   : Right shift (arithmetic).
-    Calls the `shr` method of the `std::ops::Shr` trait.
+    Gọi đến phương thức `shr` của trait `std::ops::Shr`.
 
 #### Lazy boolean operators
+(Toán tử boolean dạng lazy)
 
-The operators `||` and `&&` may be applied to operands of boolean type. The
-`||` operator denotes logical 'or', and the `&&` operator denotes logical
-'and'. They differ from `|` and `&` in that the right-hand operand is only
-evaluated when the left-hand operand does not already determine the result of
-the expression. That is, `||` only evaluates its right-hand operand when the
-left-hand operand evaluates to `false`, and `&&` only when it evaluates to
-`true`.
+Toán tử `||` và `&&` cũng có thể được áp dụng vào tính toán kiểu boolean. Toán
+tử `||` biểu thị cho logic 'or', và toán tử `&&` biểu thị cho logic 'and'.
+Chúng có sự khác biệt với `|` và `&` ở điểm là phần toán hạng phía bên phải sẽ
+chỉ được tính toán khi mà toán hạng phía bên trái không thực sự đại diện cho
+ngữ nghĩa của biểu thức. Nghĩa là , `||` chỉ tính đến toán hạng bên phải của
+nó khi mà toán hạng phía bên trái là false. Đơn giản là trong biểu thức 'or',
+chỉ cần một toán hạng là true thì toàn bộ biểu thức cũng là true. Điều này
+tương tự với toán hạng `&&`.
 
 #### Comparison operators
+(Toán tử so sánh)
 
-Comparison operators are, like the arithmetic operators and bitwise operators,
-syntactic sugar for calls to built-in traits. This means that comparison
-operators can be overridden for user-defined types. The default meaning of the
-operators on standard types is given here.
+Toán tử so sánh cũng giống như toán tử toán học va toán tử bitsire, là những
+traint được dựng sẵn trong Rust.
 
 * `==`
-  : Equal to.
-    Calls the `eq` method on the `std::cmp::PartialEq` trait.
+  : Bằng.
+    Gọi đến phương thức `eq` của trait `std::cmp::PartialEq`.
 * `!=`
-  : Unequal to.
-    Calls the `ne` method on the `std::cmp::PartialEq` trait.
+  : Không bằng.
+    Gọi đến phương thức `ne` của trait `std::cmp::PartialEq`.
 * `<`
-  : Less than.
-    Calls the `lt` method on the `std::cmp::PartialOrd` trait.
+  : Nhỏ hơn.
+    Gọi đến phương thức `lt` của trait `std::cmp::PartialOrd`.
 * `>`
-  : Greater than.
-    Calls the `gt` method on the `std::cmp::PartialOrd` trait.
+  : Lớn hơn.
+    Gọi đến phương thức `gt` của trait `std::cmp::PartialOrd`.
 * `<=`
-  : Less than or equal.
-    Calls the `le` method on the `std::cmp::PartialOrd` trait.
+  : Nhỏ hơn hoặc bằng.
+    Gọi đến phương thức `le` của trait `std::cmp::PartialOrd`.
 * `>=`
-  : Greater than or equal.
-    Calls the `ge` method on the `std::cmp::PartialOrd` trait.
+  : Lớn hơn hoặc bằng.
+    Gọi đến phương thức `ge` của trait `std::cmp::PartialOrd`.
 
 #### Type cast expressions
+(Biểu thức ép kiểu)
 
-A type cast expression is denoted with the binary operator `as`.
+Một biểu thức ép kiểu được biểu thị dưới toán tử nhị phân `as`.
 
-Executing an `as` expression casts the value on the left-hand side to the type
-on the right-hand side.
+Thực thi một biểu thức `as` sẽ chuyển đổi giá trị của toán hạng phía bên trái thành một kiểu dự liệu mới được mô tả ở phía bên phải.
 
-An example of an `as` expression:
+Ví dụ của một biểu thức `as`:
 
 ```rust
 # fn sum(values: &[f64]) -> f64 { 0.0 }
@@ -139,21 +149,23 @@ fn average(values: &[f64]) -> f64 {
 }
 ```
 
-Some of the conversions which can be done through the `as` operator
-can also be done implicitly at various points in the program, such as
-argument passing and assignment to a `let` binding with an explicit
-type. Implicit conversions are limited to "harmless" conversions that
-do not lose information and which have minimal or no risk of
-surprising side-effects on the dynamic execution semantics.
+Một vài cú pháp phải thông qua toán tử `as` để được thực thì thì cũng được ép
+kiểu ngầm từ điểm sử dụng trong chương trình ví dụ như tham số truyền vào hàm
+hoặc là gán dữ nhiều thông qua từ khóa `let` được ép kiểu tự động thành kiểu
+tương ứng. Các phương thức chuyển đổi ngầm chỉ nên được giới hạn với các chuyển
+đổi vô hại không làm mất thông tin hoặc không gây ra những phản ứng phụ bất lợi
+trong chương trình. Ví dụ như khi ép từ kiểu lớn hơn về kiểu nhỏ hơn, dữ liệu
+có thể bị mất mát do kiểu nhỏ hơn không thể biểu thị được đầy đủ giá trị như
+kiểu lớn hơn.
 
 #### Assignment expressions
+(Biểu thức gán)
 
-An *assignment expression* consists of a pattern followed by an equals
-sign (`=`) and an expression.
+Một *biểu thức gán* bao gồm một biểu mẫu được theo sau bởi dấu bằng (`=`) và
+một biểu thức.
 
-Evaluating an assignment expression either copies or
-moves its right-hand operand to its left-hand
-operand.
+Thực thi một biểu thức gán là việc sao chép hoặc chuyển giá trị từ phía bên
+phải qua phía bên trái.
 
 ```
 # let mut x = 0;
@@ -162,17 +174,19 @@ x = y;
 ```
 
 #### Compound assignment expressions
+(Biểu thức gán kết hợp)
 
-The `+`, `-`, `*`, `/`, `%`, `&`, `|`, `^`, `<<`, and `>>` operators may be
-composed with the `=` operator. The expression `lval OP= val` is equivalent to
-`lval = lval OP val`. For example, `x = x + 1` may be written as `x += 1`.
+Các toán tử `+`, `-`, `*`, `/`, `%`, `&`, `|`, `^`, `<<`, and `>>` có thể được
+kết hợp với toán tử `=`. Biểu thức `lval OP= val` thì được tính toán thành
+`lval = lval OP val`. Ví dụ, `x = x + 1` có thể được viết là `x += 1`.
 
-Any such expression always has the `unit` type.
+Mỗi một biểu thứ thì luôn luôn phải có chung một kiểu dữ liệu.
 
 #### Operator precedence
+(Thứ tự ưu tiên toán tử)
 
-The precedence of Rust binary operators is ordered as follows, going from
-strong to weak:
+Thứ tự ưu tiên của các toán tử nhị phân trong Rust được sắp xếp theo thư tự ở
+phía dưới từ cao đến thấp:
 
 ```text
 as :
@@ -190,6 +204,6 @@ as :
 =
 ```
 
-Operators at the same precedence level are evaluated left-to-right. Unary
-operators have the same precedence level and are stronger than any of the
-binary operators.
+Toán tử trong cùng một độ ưu tiên sẽ được tính toán từ bên trái qua bên phải.
+Operators at the same precedence level are evaluated left-to-right. Toán tử một
+ngôi thì có cùng một cấp độ và được ưu tiên cao nhất.

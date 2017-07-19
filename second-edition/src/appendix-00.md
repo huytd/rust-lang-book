@@ -1,4 +1,3 @@
-# Appendix
+# Appendix (Phụ lục)
 
-The following sections contain reference material you may find useful in your
-Rust journey.
+Các phần sau chứa tài liệu tham khảo bạn có thể thấy hữu ích trong hành trình cùng Rust của bạn.

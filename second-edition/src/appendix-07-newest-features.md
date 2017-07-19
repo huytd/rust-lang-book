@@ -1,14 +1,16 @@
-# Appendix G - Newest Features
+# Appendix G - Newest Features (Phụ lục G: Chức năng mới nhất)
 
-This appendix documents features that have been added to stable Rust since the
-main part of the book was completed.
+Phần phụ lục này đưa ra danh sách cập nhật về các chức năng mới xuất hiện sau
+khi nội dung chính của sách được hoàn thành.
 
 
 ## Field init shorthand
+(Thu gọn thuộc tính của giá trị khởi tạo)
 
-We can initialize a data structure (struct, enum, union) with named
-fields, by writing `fieldname` as a shorthand for `fieldname: fieldname`.
-This allows a compact syntax for initialization, with less duplication:
+Chúng ta có thể khởi tạo giá trị một cấu trúc dữ liệu (struct, enum, union)
+thông qua định danh thuộc tính bằng cách việc viết `fieldname` như một cách
+viết tắt cho `fieldname: fieldname`. Nó cho phép thu gọn cú pháp cho việc khởi
+tạo và không gây dư thừa:
 
 ```rust
 #[derive(Debug)]
